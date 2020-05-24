@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ ! -e /content/models ]; then
+        mkdir -p /root/.torch/models
+        mkdir -p /root/.fastai2/data
+        ln -s /root/.torch/models /content
+        ln -s /root/.fastai2/data /content
+        rm -rf /content/sample_data/
+fi
+
+echo Updating fastai2...
+pip install fastai2 --upgrade > /dev/null
+
+echo Done.
